@@ -1,0 +1,11 @@
+<input  placeholder="Số thứ 1" [(ngModel)]="number1">
+
+<select #zxc (change)="caculator(zxc.value)">
+  <option value="+">+</option>
+  <option value="-">-</option>
+  <option value="*">*</option>
+  <option value="/">/</option>
+</select>
+<input placeholder="Số thứ 2" [(ngModel)]="number2">
+
+<p>Result: {{result}}</p>
