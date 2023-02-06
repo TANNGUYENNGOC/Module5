@@ -6,13 +6,21 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './component/facility/list/list.component';
 import { CreateComponent } from './component/facility/create/create.component';
 import { UpdateComponent } from './component/facility/update/update.component';
+import { HomeComponent } from './component/home/home.component';
+import { HeaderComponent } from './component/header/header.component';
+import { FooterComponent } from './component/footer/footer.component';
+import { NavigationComponent } from './component/navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
     CreateComponent,
-    UpdateComponent
+    UpdateComponent,
+    HomeComponent,
+    HeaderComponent,
+    FooterComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
