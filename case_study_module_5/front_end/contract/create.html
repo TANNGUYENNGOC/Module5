@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Create</title>
@@ -11,45 +11,41 @@
 <div class="row">
     <div class="col-3"></div>
     <div class="col-6">
-        <form style="height: 300px" th:object="${contractDto}" method="post" action="/contract/addContract">
+        <form style="height: 300px">
             <div class="mb-3">
                 <label for="exampleInputEmail2" class="form-label">Ngày bắt đầu</label>
-                <input type="date" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" th:field="*{startDate}">
+                <input type="date" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail3" class="form-label">Ngày kết thúc</label>
-                <input type="date" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp" th:field="*{endDate}">
+                <input type="date" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
             </div>
 
             <div class="mb-3">
                 <label for="exampleInputEmail5" class="form-label">Tiền đặt cọc</label>
-                <input type="text" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp" th:field="*{deposit}">
+                <input type="text" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail100" class="form-label">Nhân viên làm hợp đồng</label>
-                <select id="exampleInputEmail100" th:field="*{employee}" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                    <option th:each="employee:${listEmployee}"
-                            th:text="${employee.name}" th:value="${employee.id}">
+                <select id="exampleInputEmail100" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option>
                     </option>
                 </select>
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail7" class="form-label">Khách hàng thuê dịch vụ</label>
-                <select id="exampleInputEmail7" th:field="*{customer}" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                    <option th:each="customer:${listCustomer}"
-                            th:text="${customer.name}" th:value="${customer.id}">
+                <select id="exampleInputEmail7" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option>
                     </option>
                 </select>
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail18" class="form-label">Dịch vụ</label>
-                <select id="exampleInputEmail18" th:field="*{facility}" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                    <option th:each="facility:${listFacility}"
-                            th:text="${facility.name}" th:value="${facility.id}">
+                <select id="exampleInputEmail18" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option>
                     </option>
                 </select>
             </div>
-            <a class="btn btn-secondary" href="/contract/list">Hủy bỏ</a>
             <button type="submit" class="btn btn-primary">Tạo hợp đồng</button>
         </form>
     </div>

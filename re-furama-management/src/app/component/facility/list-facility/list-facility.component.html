@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Danh sách khách hàng</title>
+  <!-- CSS only -->
+</head>
+<body>
+<div class="container-fluid vh-100">
+  <app-header></app-header>
+  <app-navigation></app-navigation>
+  <div class="row">
+    <!--        <div class="col-2">-->
+    <!--            <a class="btn btn-success text-center" href="/customer/listCustomerJoinContract">Khách hàng đang sử dụng-->
+    <!--                dịch vụ </a>-->
+    <!--        </div>-->
+    <div class="col-8">
+      <h1 class="text-center">Danh sách dịch vụ</h1>
+    </div>
+    <div class="col-2">
+      <a class="btn btn-warning text-center" href="/facility/create">Thêm mới dịch vụ</a>
+    </div>
+
+  </div>
+  <div class="row" style="box-sizing: border-box">
+    <div *ngFor="let facility of facilityList" class="card col-4" style="box-sizing: border-box">
+      <img style="height: 300px" src="https://ngocthiensup.com/wp-content/uploads/hinh-nen-zoom-van-phong-05.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{facility.name}}</h5>
+        <p class="card-text">Room size: {{facility.area}}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
+      <br>
+    </div>
+  </div>
+  <app-footer></app-footer>
+
+</div>
+</body>
+
+<!--modal xóa -->
+<!-- JavaScript Bundle with Popper -->
+
+</html>

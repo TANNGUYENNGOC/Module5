@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Danh sách khách hàng</title>
+</head>
+<body>
+<div class="container-fluid vh-100">
+  <div class="header col-xl-12 d-flex " style="height: 15%;margin-top: 10px;font-size: 12.5px">
+    <div class="col-xl-2">
+      <img style="height: 90%" src="https://furamavietnam.com/wp-content/uploads/2018/10/logo.png"
+           alt=" Logo Header Menu">
+    </div>
+    <div class="col-xl-4"><img src="../img/Screenshot 2022-11-01 162539.png" height="124" width="321"/>
+    </div>
+    <div class="d-flex col-xl-3" style="height: 100%">
+      <img src="../img/address.png" height="48" width="48"/>
+      <p>
+        103 – 105 Đường Võ Nguyên Giáp, Phường Khuê Mỹ, Quận Ngũ hành Sơn, Tp. Đà Nẵng, Việt Nam <br>
+        7.0 km từ Sân bay Quốc tế Đà Nẵng</p>
+    </div>
+    <div class=" col-xl-3" style="padding-left: 30px">
+      <div class="col-xl-6 d-flex">
+        <img src="../img/phone.png" height="30" width="30"/>
+        <p>84-236-3847 333/888</p>
+      </div>
+      <div class="col-xl-6 d-flex">
+        <img src="../img/mail.png" height="30px" width="30px"/>
+        <p>reservation@furamavietnam.com</p>
+      </div>
+
+    </div>
+  </div>
+  <div class="row sticky-top" style="height: 10%;margin-bottom: 10px">
+    <div class="col-xl-12 " style="background-color: #0d6056;padding-top: 5px">
+      <ul class="nav  justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link active" style="color: white" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"
+             href="/employee/list"
+             style="color: white">Employee</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/customer/list" style="color: white">Customer</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/facility/" style="color: white">Service</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contract/list" style="color: white">Contract</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-10">
+      <h1 class="text-center">Danh sách hợp đồng</h1>
+    </div>
+    <div class="col-2">
+      <!--            <a class="btn btn-warning" th:href="@{/contract/addContract}">Thêm mới hợp đồng</a>-->
+      <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalCreateContract"
+              data-bs-whatever="@mdo">THêm mới hợp đồng
+      </button>
+    </div>
+  </div>
+  <table class="table table-striped">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Tên dịch vụ</th>
+      <th scope="col">Tên nhân viên</th>
+      <th scope="col">Tên khách hàng</th>
+      <th scope="col">Ngày bắt đầu</th>
+      <th scope="col">Ngày kết thúc</th>
+      <th scope="col">Tiền đặt cọc</th>
+      <th scope="col">Tổng tiền</th>
+      <th colspan="2" scope="col">Các dịch vụ đi kèm</th>
+    </tr>
+  </table>
+
+</div>
+<input type="hidden" id="modaleCreate">
+</body>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Danh sách dịch vụ đi kèm</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">Stt</th>
+            <th scope="col">Tên dịch vụ</th>
+            <th scope="col">Giá</th>
+            <th scope="col">Đơn vị</th>
+            <th scope="col">Trạng thái</th>
+            <th scope="col">Số lượng</th>
+            <th scope="col">Thành tiền</th>
+          </tr>
+          </thead>
+          <tbody id="myTableContractDetail">
+
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</html>

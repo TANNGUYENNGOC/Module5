@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Danh sách khách hàng</title>
-    <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
 </head>
 <body>
 <div class="container-fluid vh-100">
@@ -35,7 +33,7 @@
         </div>
     </div>
     <div class="row sticky-top" style="height: 10%;margin-bottom: 10px">
-        <div class="col-xl-6 " style="background-color: #0d6056;padding-top: 5px">
+        <div class="col-xl-12 " style="background-color: #0d6056;padding-top: 5px">
             <ul class="nav  justify-content-center">
                 <li class="nav-item">
                     <a class="nav-link active" style="color: white" aria-current="page" href="/">Home</a>
@@ -56,27 +54,7 @@
                 </li>
             </ul>
         </div>
-        <div class="col-xl-6" style="background-color: #0d6056;padding-top: 10px">
-            <form class="d-flex" role="search" action="/customer/listCustomer" method="get">
-                <div class="col-7 d-flex">
-                    <input style="height: 80%" class="form-control me-2" type="search" placeholder="Tên khách hàng"
-                           aria-label="Search" name="name" th:value="${name}">
-                    <input style="height: 80%" class="form-control me-2" type="search" placeholder="Email"
-                           aria-label="Search" name="email" th:value="${email}">
-                </div>
-                <div class="form-control-sm me-2">
-                    <select class="form-select" name="customerTypeName">
-                        <option th:value="${''}">Customer Type</option>
-                        <option th:each="customerTypeName : ${listCustomerType}" th:value="${customerTypeName.name}"
-                                th:text="${customerTypeName.name}"></option>
-                    </select>
-                </div>
-                <button class="btn btn-outline-success" type="submit"
-                        style="background-color: #5c636a;height: 80%;border: 2px solid yellow;color: white">Search
-                </button>
-            </form>
 
-        </div>
     </div>
     <div class="row">
         <div class="col-2">
@@ -84,7 +62,6 @@
         </div>
         <div class="col-8">
             <h1 class="text-center">Danh sách khách hàng</h1>
-            <p style="color: red" th:text="${mess}"></p>
         </div>
         <div class="col-2">
             <!--            <a class="btn btn-warning text-center" href="/customer/create">Thêm mới khách hàng</a>-->
@@ -108,35 +85,7 @@
             <th scope="col">Chỉnh sửa</th>
             <th scope="col">Xóa</th>
         </tr>
-        <th:block th:each="customer : ${customers}">
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><a class="btn btn-outline-success"
-                       th:href="@{/customer/{id}/update(id=${customer.getId()})}">Sửa</a></td>
-                <td><a class="btn btn-outline-success"
-                       th:href="@{/customer/{id}/remove(id=${customer.getId()})}">Xóa</a></td>
-            </tr>
-        </th:block>
     </table>
-    <a th:href="@{/customer/listCustomer(page=${customers.number - 1})}" th:if="${customers.hasPrevious()}"
-       class="btn btn-success">Previous</a>
-    <span th:text="${customers.number+1}+'/'+${customers.totalPages}"></span>
-    <a th:href="@{/customer/listCustomer(page=${customers.number + 1})}" th:if="${customers.hasNext()}"
-       class="btn btn-success">Next</a>
 </div>
-<input type="hidden" id="modalCheck" th:value="${modal}">
 </body>
-<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
-<!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
-
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Danh sách khách hàng</title>
@@ -56,25 +56,6 @@
                 </li>
             </ul>
         </div>
-        <div class="col-xl-6" style="background-color: #0d6056;padding-top: 10px">
-            <form class="d-flex" role="search" action="/facility/list" method="get">
-                <div class="col-7 d-flex">
-                    <input style="height: 80%" class="form-control me-2" type="search" placeholder="Tên dịch vụ"
-                           aria-label="Search" name="nameFacility" th:value="${nameFacility}">
-                </div>
-                <div class="form-control-sm me-2">
-                    <select class="form-select" name="facilityType">
-                        <option th:value="${''}">Facility Type</option>
-                        <option th:each="facility : ${listFacilityType}" th:value="${facility.name}"
-                                th:text="${facility.name}"></option>
-                    </select>
-                </div>
-                <button class="btn btn-outline-success" type="submit"
-                        style="background-color: #5c636a;height: 80%;border: 2px solid yellow;color: white">Search
-                </button>
-            </form>
-
-        </div>
     </div>
     <div class="row">
         <!--        <div class="col-2">-->
@@ -83,7 +64,6 @@
         <!--        </div>-->
         <div class="col-8">
             <h1 class="text-center">Danh sách dịch vụ</h1>
-            <p style="color: red" th:text="${mess}"></p>
         </div>
         <div class="col-2">
             <a class="btn btn-warning text-center" href="/facility/create">Thêm mới dịch vụ</a>
