@@ -73,6 +73,7 @@
 
   </div>
   <table class="table table-striped">
+    <thead>
     <tr>
       <th scope="col">Kiểu khách hàng</th>
       <th scope="col">Tên khách hàng</th>
@@ -82,9 +83,24 @@
       <th scope="col">Số điện thoại</th>
       <th scope="col">Email</th>
       <th scope="col">Địa chỉ</th>
-      <th scope="col">Chỉnh sửa</th>
-      <th scope="col">Xóa</th>
     </tr>
+    </thead>
+    <tbody *ngFor="let customer of customerList">
+    <tr>
+      <td>{{customer.id}}</td>
+      <td>{{customer.customerType.name}}</td>
+      <td>{{customer.name}}</td>
+      <td>{{customer.dateOfBirth}}</td>
+      <td *ngIf="customer.gender;else genderBlock">Nam</td>
+      <ng-template #genderBlock>
+        <td>Nữ</td>
+      </ng-template>
+      <td>{{customer.idCard}}</td>
+      <td>{{customer.phoneNumber}}</td>
+      <td>{{customer.email}}</td>
+      <td>{{customer.address}}</td>
+    </tr>
+    </tbody>
   </table>
 </div>
 </body>
