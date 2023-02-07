@@ -7,9 +7,9 @@ import {Caculator} from '../../model/caculator';
   styleUrls: ['./calculator.component.css']
 })
 export class CalculatorComponent implements OnInit {
-    number1:number;
-    number2:number;
-    result:number;
+  fistNumber: number;
+  lastNumber: number;
+  result: number;
 
   constructor() {
   }
@@ -17,24 +17,22 @@ export class CalculatorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  caculator(dau: string) {
-    switch (dau) {
+  caculator(math: string) {
+    switch (math) {
       case '+':
-        this.result = +this.number1 + +this.number2;
+        this.result = +this.fistNumber + +this.lastNumber;
         break;
 
       case '-':
-        this.result = this.number1 - this.number2;
+        this.result = this.fistNumber - this.lastNumber;
         break;
 
       case '*':
-        this.result = this.number1 * this.number2;
+        this.result = this.fistNumber * this.lastNumber;
         break;
 
       case '/':
-        this.result = this.number1 / this.number2;
-        break;
-
+        this.result = this.fistNumber / this.lastNumber;
     }
   }
 }
