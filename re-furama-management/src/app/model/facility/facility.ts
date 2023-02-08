@@ -4,6 +4,7 @@ import {FacilityType} from './facility-type';
 export interface Facility {
   id:number;
   name:string;
+  img?:string,
   area?:number;
   cost?:number;
   maxPeople?:number;
