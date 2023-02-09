@@ -1,0 +1,58 @@
+{
+  "contract": [
+    {
+      "id":1,
+      "startDate":"01-01-2023",
+      "endDate":"02-02-2023",
+      "deposit":2000,
+      "employee":{
+        "id":1,
+        "name":"Nhậm Ngã Hành"
+      },
+      "customer":{
+        "id":2,
+        "name":"Khương Tử Nha"
+      },
+      "facility":{
+        "id":3,
+        "name":"RoomOfTan"
+      }
+    },{
+      "id":2,
+      "startDate":"01-01-2023",
+      "endDate":"02-02-2023",
+      "deposit":3000,
+      "employee":{
+        "id":1,
+        "name":"Nhậm Ngã Hành"
+      },
+      "customer":{
+        "id":2,
+        "name":"Khương Tử Nha"
+      },
+      "facility":{
+        "id":3,
+        "name":"RoomOfTan"
+      }
+    }
+  ],
+  "customer": [
+    {
+      "id":2,
+      "name":"Khương Tử Nha"
+    }
+  ],
+  "employee": [
+    {
+      "id":1,
+      "name":"Nhậm Ngã Hành"
+    }
+  ],
+  "facility": [
+  {
+    "id":3,
+    "name":"RoomOfTan"
+  }
+]
+
+}

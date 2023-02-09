@@ -27,7 +27,7 @@ export class CreateComponent implements OnInit {
     console.log(this.reactiveForm);
   }
 
-  validateConfirmPassWord(control:AbstractControl,){
+  validateConfirmPassWord(control:AbstractControl){
     let check = control.value;
     if (check.password === check.confirmPassword){
       return {"123azasd":true}

@@ -1,0 +1,8 @@
+<div *ngIf="product, else block">
+  id: <p>{{product.id}}</p>
+  name <p>{{product.name}}</p>
+  price <p>{{product.price}}</p>
+  description <p>{{product.description}}</p>
+</div>
+
+<ng-template #block>không tìm thấy sản phẩm</ng-template>
