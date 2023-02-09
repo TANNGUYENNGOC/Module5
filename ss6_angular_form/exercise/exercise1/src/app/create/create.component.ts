@@ -8,6 +8,7 @@ import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/form
 })
 export class CreateComponent implements OnInit {
   reactiveForm: FormGroup;
+  counttryList: string [] = ["Việt Nam", "USA","English"];
   constructor() {
     this.reactiveForm = new FormGroup({
       email: new FormControl("",[Validators.required]),

@@ -23,11 +23,12 @@
       <p style="color: red" *ngIf="reactiveForm.controls.confirmPassword.hasError('123azasd') && reactiveForm.controls.confirmPassword.touched">Mật khẩu nhập lại không đúng</p>
     </div>
     <label class="form-label">Country</label>
-    <select formControlName="country" name="country" id="disabledSelect" class="form-select mb-3">
-      <option>---Chọn quốc gia---</option>
-      <option value="1">Việt Nam</option>
-      <option value="2">USA</option>
+    <div  class="mb-3">
+    <select  formControlName="country" name="country" id="disabledSelect" class="form-select mb-3">
+      <option>--Quốc gia---</option>
+      <option #text *ngFor="let country of counttryList">{{country}}</option>
     </select>
+    </div>
     <p  style="color: red" *ngIf="reactiveForm.controls.country.hasError('required') && reactiveForm.controls.country.touched">Vui lòng chọn quốc gia </p>
     <div class="mb-3">
       <label for="exampleInputEmail4" class="form-label">Age</label>

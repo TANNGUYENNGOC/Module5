@@ -15,10 +15,10 @@ export class ProductDetailComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(next => {
       const id = next.get("id");
       if (id != null){
-        this.product = productService.findById(parseInt(id));
+        this.product = productService.findById(Number(id));
         console.log(this.product)
       }
-    })
+    }, error => {})
   }
 
   ngOnInit(): void {
