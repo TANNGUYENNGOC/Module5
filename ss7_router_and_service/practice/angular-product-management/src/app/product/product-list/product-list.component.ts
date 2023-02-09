@@ -31,7 +31,7 @@ export class ProductListComponent implements OnInit {
 
   removeProduct() {
     this.productService.remove(this.idProduct)
-    this.router.navigateByUrl('/')
+    // this.router.navigateByUrl('/')
   }
 
 }
