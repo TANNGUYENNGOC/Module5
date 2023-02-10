@@ -1,0 +1,48 @@
+------------------------------------------------------
+<!--<br>Create Student<br>-->
+<!--<label>ID</label>-->
+<!--<input [(ngModel)]="student.id"><br>-->
+<!--<label>Name</label>-->
+<!--<input [(ngModel)]="student.name"><br>-->
+<!--<label>Date of birth</label>-->
+<!--<input type="date" [(ngModel)]="student.dateOfBirth"><br>-->
+<!--<label>Point</label>-->
+<!--<input type="number" [(ngModel)]="student.point"><br>-->
+<!--<input type="button" (click)="createStudent()" value="Thêm mới">-->
+
+<!--Template driven form-->
+<!--<form #templateForm="ngForm" (ngSubmit)="createStudentWithTemplate(templateForm)">-->
+<!--  <br>Create Student<br>-->
+<!--  <label>ID</label>-->
+<!--  <input ngModel name="id"><br>-->
+<!--  <label>Name</label>-->
+<!--  <input ngModel name="name"><br>-->
+<!--  <label>Date of birth</label>-->
+<!--  <input type="date" ngModel name = "dateOfBirth"><br>-->
+<!--  <label>Point</label>-->
+<!--  <input type="number" ngModel name="point"><br>-->
+<!--  <input type="submit" value="Thêm mới">-->
+<!--</form>-->
+
+<!--Reactive form-->
+<form [formGroup]="reactiveForm" (ngSubmit)="createStudentWithReactive()">
+  <br>Create Student<br>
+  <label>ID</label>
+  <input formControlName="id" name="id"><br>
+  <p style="color: red" *ngIf="reactiveForm.controls.id.hasError('required') && reactiveForm.controls.id.pristine">Id
+    không được để trống</p>
+  <p style="color: red" *ngIf="reactiveForm.controls.id.hasError('min')">Id không được nhỏ hơn 0</p>
+  <label>Name</label>
+  <input placeholder="Ex: Truong Tan A" formControlName="name" name="name"><br>
+  <p style="color: red" *ngIf="reactiveForm.controls.name.hasError('minlength')">Tên không được ít hơn 4 ký tự</p>
+  <label>Date of birth</label>
+  <input type="date" formControlName="dateOfBirth" name="dateOfBirth"><br>
+  <label>Point</label>
+  <input type="number" formControlName="point" name="point"><br>
+  <p style="color: red" *ngIf="reactiveForm.controls.point.hasError('invalidPoint')">Điểm không được nhỏ hơn 0</p>
+  <p style="color: red" *ngIf="reactiveForm.controls.point.hasError('min')">Điểm không được nhỏ hơn -1</p>
+  <select formControlName="classroom">
+    <option *ngFor="let class of classrooms" [ngValue]="class">{{class.nameClass}}</option>
+  </select>
+  <input type="submit" value="Thêm mới">
+</form>

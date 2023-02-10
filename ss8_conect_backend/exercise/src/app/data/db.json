@@ -1,0 +1,64 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "name": "IPhone 12",
+      "price": 2400000,
+      "description": "New",
+      "category": {
+        "id": 2,
+        "name": "không Xịn"
+      }
+    },
+    {
+      "id": 2,
+      "name": "IPhone 11",
+      "price": 1560000,
+      "description": "Like new new",
+      "category": {
+        "id": 1,
+        "name": "xịn"
+      }
+    },
+    {
+      "id": 3,
+      "name": "IPhone X",
+      "price": 968000,
+      "description": "97%",
+      "category": {
+        "id": 1,
+        "name": "xịn"
+      }
+    },
+    {
+      "id": 5,
+      "name": "IPhone 11 Pro",
+      "price": 1895000,
+      "description": "Like new",
+      "category": {
+        "id": 1,
+        "name": "xịn"
+      }
+    },
+    {
+      "id": 8,
+      "name": "8",
+      "price": 8,
+      "description": "8",
+      "category": {
+        "id": 1,
+        "name": "xịn"
+      }
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "Xịn"
+    },
+    {
+      "id": 2,
+      "name": "không Xịn"
+    }
+  ]
+}

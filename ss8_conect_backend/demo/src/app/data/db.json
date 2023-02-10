@@ -1,0 +1,54 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "HaiTT",
+      "dateOfBirth": "1998/01/01",
+      "point": 9
+    },
+    {
+      "id": 2,
+      "name": "TrungDP",
+      "dateOfBirth": "1998/01/01",
+      "point": 9
+    },
+    {
+      "id": 3,
+      "name": "TrungDC",
+      "dateOfBirth": "1998/01/01",
+      "point": 9
+    },
+    {
+      "id": "5",
+      "name": "Kim Minh",
+      "dateOfBirth": "1994-01-01",
+      "point": 9
+    },
+    {
+      "id": "10",
+      "name": "Thuy Diem",
+      "dateOfBirth": "2001-01-01",
+      "point": 9
+    },
+    {
+      "id": 12,
+      "name": "Cuong",
+      "dateOfBirth": "2023-02-05",
+      "point": 9,
+      "classroom": {
+        "id": 2,
+        "nameClass": "C0722G1"
+      }
+    }
+  ],
+  "classrooms": [
+    {
+      "id": 1,
+      "nameClass": "C0822G1"
+    },
+    {
+      "id": 2,
+      "nameClass": "C0722G1"
+    }
+  ]
+}

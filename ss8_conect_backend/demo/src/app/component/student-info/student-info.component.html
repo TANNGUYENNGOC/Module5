@@ -1,0 +1,8 @@
+<div *ngIf="student, else block">
+  Id: <p>{{student.id}}</p>
+  Name: <p>{{student.name}}</p>
+  Point: <p>{{student.point}}</p>
+</div>
+<ng-template #block>Không tìm thấy đối tượng</ng-template>
+
+
