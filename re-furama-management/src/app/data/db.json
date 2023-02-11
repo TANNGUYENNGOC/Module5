@@ -36,6 +36,16 @@
       }
     }
   ],
+  "customerType": [
+    {
+      "id": 1,
+      "name": "Vip"
+    },
+    {
+      "id": 2,
+      "name": "không vip"
+    }
+],
   "customer": [
     {
       "id":2,

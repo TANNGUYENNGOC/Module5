@@ -15,6 +15,7 @@ import { UpdateCustomerComponent } from './component/customer/update-customer/up
 import { CreateFacilityComponent } from './component/facility/create-facility/create-facility.component';
 import { ListFacilityComponent } from './component/facility/list-facility/list-facility.component';
 import { UpdateFacilityComponent } from './component/facility/update-facility/update-facility.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { UpdateFacilityComponent } from './component/facility/update-facility/up
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

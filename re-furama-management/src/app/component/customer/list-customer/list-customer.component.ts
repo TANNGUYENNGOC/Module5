@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Customer} from "../../../model/customer/customer";
+import {CustomerService} from "../../service/customer.service";
 
 @Component({
   selector: 'app-list-customer',
@@ -7,40 +8,22 @@ import {Customer} from "../../../model/customer/customer";
   styleUrls: ['./list-customer.component.css']
 })
 export class ListCustomerComponent implements OnInit {
-  customerList:Customer [] = [
-    {
-      id:1,
-      customerType:{
-        id:1,
-        name:"vip"
-      },
-      name:"tan123azasd",
-      dateOfBirth:"22-02-2000",
-      gender:true,
-      idCard:"123456789",
-      phoneNumber:"00099944332",
-      email:"tan@gmail.com",
-      address:"Quảng ngãi"
-    },
-    {
-      id:1,
-      customerType:{
-        id:1,
-        name:"vip"
-      },
-      name:"tan123azasd",
-      dateOfBirth:"22-02-2000",
-      gender:false,
-      idCard:"123456789",
-      phoneNumber:"00099944332",
-      email:"tan@gmail.com",
-      address:"Quảng ngãi"
-    }
-  ]
+  customerList: Customer [] = [];
 
-  constructor() { }
+  constructor(private customerService: CustomerService) {
 
-  ngOnInit(): void {
   }
 
+  ngOnInit(): void {
+    this.getAllCustomer();
+  }
+
+  getAllCustomer() {
+    this.customerService.getAll().subscribe(next => {
+      console.log(next);
+      this.customerList = next;
+    },error => {
+
+    })
+  }
 }
