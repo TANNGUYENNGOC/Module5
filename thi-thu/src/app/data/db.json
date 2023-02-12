@@ -1,0 +1,30 @@
+{
+  "student": [
+    {
+      "id": 1,
+      "name": "Nguyễn Ngọc Tấn",
+      "clazz": {
+        "id": 2,
+        "name": "C0722G1"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Trần Quốc Đạt",
+      "clazz": {
+        "id": 2,
+        "name": "C0722G1"
+      }
+    }
+  ],
+  "clazz": [
+    {
+      "id": 1,
+      "name": "C0822G1"
+    },
+    {
+      "id": 2,
+      "name": "C0722G1"
+    }
+  ]
+}

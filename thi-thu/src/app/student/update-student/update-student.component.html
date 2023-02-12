@@ -1,0 +1,13 @@
+<h1>Chỉnh sửa thông tin học sinh</h1>
+<form [formGroup]="formUpdateStudent" (ngSubmit)="updateStudent()">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Tên</label>
+    <input formControlName="name" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <select formControlName="clazz" class="form-select" aria-label="Default select example" [compareWith]="compareWith">
+    <option selected>---Lớp---</option>
+    <option *ngFor="let clazz of clazzList" [ngValue]="clazz">{{clazz.name}}</option>
+  </select>
+  <br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

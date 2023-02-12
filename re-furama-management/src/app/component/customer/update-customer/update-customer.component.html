@@ -10,25 +10,32 @@
 <div class="row">
   <div class="col-3"></div>
   <div class="col-6">
-    <form style="height: 300px">
-      <div class="mb-3">
-        <label for="exampleInputEmail22" class="form-label">ID:</label>
-        <input type="text" class="form-control" id="exampleInputEmail22" aria-describedby="emailHelp">
+    <form [formGroup]="formUpdateCustomer" style="height: 300px" (ngSubmit)="updateCustomer()">
+      <div hidden class="mb-3">
+        <label for="exampleInputEmail22" class="form-label">ID</label>
+        <input formControlName="id" type="text" class="form-control" id="exampleInputEmail22" aria-describedby="emailHelp">
       </div>
       <div class="mb-3">
         <label class="form-label">Loại khách hàng</label>
-        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-          <option>
+        <select formControlName="customerType" [compareWith]="compareWith" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+          <option selected value="">--Loại khách hàng--</option>
+          <option *ngFor="let customerType of customerTypeList" [ngValue]="customerType">{{customerType.name}}
           </option>
         </select>
+        <p style="color: red" *ngIf="formUpdateCustomer.controls.customerType.hasError('required') && formUpdateCustomer.controls.customerType.touched">Loại khách hàng được để trống</p>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail2" class="form-label">Tên khách hàng</label>
-        <input type="text" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
+        <input formControlName="name" type="text" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
+        <p style="color: red" *ngIf="formUpdateCustomer.controls.name.hasError('required') && formUpdateCustomer.controls.name.touched">Tên không được để trống</p>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail3" class="form-label">Ngày sinh</label>
-        <input type="date" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
+        <input formControlName="dateOfBirth" type="date" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
+        <p style="color: red"
+           *ngIf="formUpdateCustomer.controls.dateOfBirth.hasError('required') && formUpdateCustomer.controls.dateOfBirth.touched">
+          Ngày sinh không được để trống</p>
+
       </div>
       <div class="mb-3">
         <div class="form-check">
@@ -46,27 +53,36 @@
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail5" class="form-label">Số CMND</label>
-        <input type="text" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp">
+        <input formControlName="idCard" type="text" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp">
+        <p style="color: red"
+           *ngIf="formUpdateCustomer.controls.idCard.hasError('required') && formUpdateCustomer.controls.idCard.touched">
+          SỐ CMND không được để trống</p>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail6" class="form-label">Số điện thoại</label>
-        <input type="text" class="form-control" id="exampleInputEmail6" aria-describedby="emailHelp">
-
+        <input formControlName="phoneNumber" type="text" class="form-control" id="exampleInputEmail6" aria-describedby="emailHelp">
+        <p style="color: red"
+           *ngIf="formUpdateCustomer.controls.phoneNumber.hasError('required') && formUpdateCustomer.controls.phoneNumber.touched">
+          SỐ điện thoại không được để trống</p>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail7" class="form-label">Email</label>
-        <input type="text" class="form-control" id="exampleInputEmail7" aria-describedby="emailHelp">
-
+        <input formControlName="email" type="text" class="form-control" id="exampleInputEmail7" aria-describedby="emailHelp">
+        <p style="color: red"
+           *ngIf="formUpdateCustomer.controls.email.hasError('required') && formUpdateCustomer.controls.email.touched">
+          Email không được để trống</p>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail8" class="form-label">Địa chỉ</label>
-        <input type="text" class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp">
+        <input formControlName="address" type="text" class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp">
+        <p formControlName="address" style="color: red"
+           *ngIf="formUpdateCustomer.controls.address.hasError('required') && formUpdateCustomer.controls.address.touched">
+          Địa chỉ không được để trống</p>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
   <div class="col-3"></div>
 </div>
-
 </body>
 </html>

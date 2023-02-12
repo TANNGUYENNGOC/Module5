@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer} from "../../../model/customer/customer";
-import {CustomerService} from "../../service/customer.service";
+import {CustomerService} from "../../service/customer/customer.service";
 
 @Component({
   selector: 'app-list-customer',
@@ -10,7 +10,7 @@ import {CustomerService} from "../../service/customer.service";
 export class ListCustomerComponent implements OnInit {
   customerList: Customer [] = [];
 
-  constructor(private customerService: CustomerService) {
+  constructor(private customerService:CustomerService) {
 
   }
 
@@ -19,8 +19,7 @@ export class ListCustomerComponent implements OnInit {
   }
 
   getAllCustomer() {
-    this.customerService.getAll().subscribe(next => {
-      console.log(next);
+    return this.customerService.getAll().subscribe(next=>{
       this.customerList = next;
     },error => {
 

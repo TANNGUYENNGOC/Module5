@@ -9,22 +9,23 @@
 <div class="row">
   <div class="col-3"></div>
   <div class="col-6">
-    <form [formGroup]="createFormCustomer" style="height: 300px" method="post">
+    <form [formGroup]="createFormCustomer" style="height: 300px" method="post" (ngSubmit)="createCustomer()">
       <div class="mb-3">
-        <label class="form-label">Loại khách hàng</label>
-        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-          <option>
-          </option>
+        <select formControlName="customerType" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+          <option value="" selected>---Loại khách hàng---</option>
+          <option *ngFor="let customerType of customerTypeList" [ngValue]="customerType">{{customerType.name}}</option>
         </select>
+        <p style="color: red" *ngIf="createFormCustomer.controls.customerType.hasError('required') && createFormCustomer.controls.customerType.touched">Loại khách hàng được để trống</p>
+
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail2" class="form-label">Tên khách hàng</label>
-        <input formControl="name" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
+        <input formControlName="name" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
         <p style="color: red" *ngIf="createFormCustomer.controls.name.hasError('required') && createFormCustomer.controls.name.touched">Tên không được để trống</p>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail3" class="form-label">Ngày sinh</label>
-        <input formControl="dateOfBirth" type="date" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
+        <input formControlName="dateOfBirth" type="date" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
         <p style="color: red"
            *ngIf="createFormCustomer.controls.dateOfBirth.hasError('required') && createFormCustomer.controls.dateOfBirth.touched">
           Ngày sinh không được để trống</p>
@@ -45,31 +46,31 @@
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail5" class="form-label">Số CMND</label>
-        <input formControl="idCard" type="text" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp">
+        <input formControlName="idCard" type="text" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp">
         <p style="color: red"
            *ngIf="createFormCustomer.controls.idCard.hasError('required') && createFormCustomer.controls.idCard.touched">
           SỐ CMND không được để trống</p>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail6" class="form-label">Số điện thoại</label>
-        <input formControl="phoneNumber" type="text" class="form-control" id="exampleInputEmail6" aria-describedby="emailHelp">
+        <input formControlName="phoneNumber" type="text" class="form-control" id="exampleInputEmail6" aria-describedby="emailHelp">
         <p style="color: red"
            *ngIf="createFormCustomer.controls.phoneNumber.hasError('required') && createFormCustomer.controls.phoneNumber.touched">
           SỐ điện thoại không được để trống</p>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail7" class="form-label">Email</label>
-        <input type="text" class="form-control" id="exampleInputEmail7" aria-describedby="emailHelp">
-        <p formControl="email" style="color: red"
+        <input formControlName="email" type="text" class="form-control" id="exampleInputEmail7" aria-describedby="emailHelp">
+        <p style="color: red"
            *ngIf="createFormCustomer.controls.email.hasError('required') && createFormCustomer.controls.email.touched">
           Email không được để trống</p>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail8" class="form-label">Địa chỉ</label>
-        <input type="text" class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp">
-        <p formControl="address" style="color: red"
+        <input formControlName="address" type="text" class="form-control" id="exampleInputEmail8" aria-describedby="emailHelp">
+        <p formControlName="address" style="color: red"
            *ngIf="createFormCustomer.controls.address.hasError('required') && createFormCustomer.controls.address.touched">
-          Email không được để trống</p>
+          Địa chỉ không được để trống</p>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>

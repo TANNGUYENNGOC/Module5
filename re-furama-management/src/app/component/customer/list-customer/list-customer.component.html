@@ -64,13 +64,13 @@
       <h1 class="text-center">Danh sách khách hàng</h1>
     </div>
     <div class="col-2">
-      <!--            <a class="btn btn-warning text-center" href="/customer/create">Thêm mới khách hàng</a>-->
-      <button routerLink="/component/customer/create"  class="btn btn-primary">Thêm mới</button>
+      <button routerLink="/customer/create" type="button" class="btn btn-success">Thêm mới</button>
     </div>
   </div>
   <table class="table table-striped">
     <thead>
     <tr>
+      <th scope="col">STT</th>
       <th scope="col">Kiểu khách hàng</th>
       <th scope="col">Tên khách hàng</th>
       <th scope="col">Ngày sinh</th>
@@ -79,6 +79,7 @@
       <th scope="col">Số điện thoại</th>
       <th scope="col">Email</th>
       <th scope="col">Địa chỉ</th>
+      <th scope="col">Sửa</th>
     </tr>
     </thead>
     <tbody *ngFor="let customer of customerList">
@@ -95,6 +96,9 @@
       <td>{{customer.phoneNumber}}</td>
       <td>{{customer.email}}</td>
       <td>{{customer.address}}</td>
+      <td>
+        <button [routerLink]="['/customer/update',customer.id]" type="button" class="btn btn-warning">Sửa</button>
+      </td>
     </tr>
     </tbody>
   </table>
