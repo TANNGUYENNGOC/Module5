@@ -13,8 +13,7 @@
       <h1 class="text-center">Danh sách hợp đồng</h1>
     </div>
     <div class="col-2">
-      <!--            <a class="btn btn-warning" th:href="@{/contract/addContract}">Thêm mới hợp đồng</a>-->
-      <button routerLink="/contract/create"  class="btn btn-primary">Thêm mới</button>
+      <button [routerLink]="['/contract/create']" type="button" class="btn btn-success">Thêm mới</button>
     </div>
   </div>
   <table class="table">
@@ -26,6 +25,7 @@
       <th scope="col">Nhân viên</th>
       <th scope="col">Khách hàng</th>
       <th scope="col">Dịch vụ</th>
+      <th scope="col">Xóa</th>
     </tr>
     </thead>
     <tbody>
@@ -36,43 +36,34 @@
       <td>{{contract.employee.name}}</td>
       <td>{{contract.customer.name}}</td>
       <td>{{contract.facility.name}}</td>
+      <td>
+        <button (click)="contractRemove = contract" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Xóa
+        </button>
+      </td>
     </tr>
     </tbody>
   </table>
 
 </div>
-<input type="hidden" id="modaleCreate">
 </body>
+</html>
+
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Danh sách dịch vụ đi kèm</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Xóa</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <table class="table">
-          <thead>
-          <tr>
-            <th scope="col">Stt</th>
-            <th scope="col">Tên dịch vụ</th>
-            <th scope="col">Giá</th>
-            <th scope="col">Đơn vị</th>
-            <th scope="col">Trạng thái</th>
-            <th scope="col">Số lượng</th>
-            <th scope="col">Thành tiền</th>
-          </tr>
-          </thead>
-          <tbody id="myTableContractDetail">
-
-          </tbody>
-        </table>
+        <p>Bạn có muốn xóa hợp đồng có id: <span style="color: red">{{contractRemove.id}}</span> này không ?</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+        <button (click)="removeContract()"  type="button" data-bs-dismiss="modal" class="btn btn-primary">Xóa</button>
       </div>
     </div>
   </div>
 </div>
-</html>

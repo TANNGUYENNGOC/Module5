@@ -7,55 +7,9 @@
 </head>
 <body>
 <div class="container-fluid vh-100">
-  <div class="header col-xl-12 d-flex " style="height: 15%;margin-top: 10px;font-size: 12.5px">
-    <div class="col-xl-2">
-      <img style="height: 90%" src="https://furamavietnam.com/wp-content/uploads/2018/10/logo.png"
-           alt=" Logo Header Menu">
-    </div>
-    <div class="col-xl-4"><img src="../img/Screenshot 2022-11-01 162539.png" height="124" width="321"/>
-    </div>
-    <div class="d-flex col-xl-3" style="height: 100%">
-      <img src="../img/address.png" height="48" width="48"/>
-      <p>
-        103 – 105 Đường Võ Nguyên Giáp, Phường Khuê Mỹ, Quận Ngũ hành Sơn, Tp. Đà Nẵng, Việt Nam <br>
-        7.0 km từ Sân bay Quốc tế Đà Nẵng</p>
-    </div>
-    <div class=" col-xl-3" style="padding-left: 30px">
-      <div class="col-xl-6 d-flex">
-        <img src="../img/phone.png" height="30" width="30"/>
-        <p>84-236-3847 333/888</p>
-      </div>
-      <div class="col-xl-6 d-flex">
-        <img src="../img/mail.png" height="30px" width="30px"/>
-        <p>reservation@furamavietnam.com</p>
-      </div>
+  <app-header></app-header>
+  <app-navigation></app-navigation>
 
-    </div>
-  </div>
-  <div class="row sticky-top" style="height: 10%;margin-bottom: 10px">
-    <div class="col-xl-12 " style="background-color: #0d6056;padding-top: 5px">
-      <ul class="nav  justify-content-center">
-        <li class="nav-item">
-          <a class="nav-link active" style="color: white" aria-current="page" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"
-             href="/employee/list"
-             style="color: white">Employee</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/customer/list" style="color: white">Customer</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/facility/" style="color: white">Service</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/contract/list" style="color: white">Contract</a>
-        </li>
-      </ul>
-    </div>
-
-  </div>
   <div class="row">
     <div class="col-2">
 
@@ -63,6 +17,16 @@
     <div class="col-8">
       <h1 class="text-center">Danh sách khách hàng</h1>
     </div>
+    <div class="d-flex">
+      <input #nameCustomer class="form-control me-2" type="search" placeholder="Tên khách hàng" aria-label="Search">
+      <input #emailCustomer class="form-control me-2" type="search" placeholder="Email" aria-label="Search">
+      <select #customerType formControlName="clazz" class="form-select" aria-label="Default select example">
+        <option  value=''>---Loại khách hàng---</option>
+        <option *ngFor="let customerType of listCustomerType" [value]="customerType">{{customerType.name}}</option>
+      </select>
+      <button (click)="search(nameCustomer.value,emailCustomer.value,customerType.value)" class="btn btn-outline-success" type="submit">Search</button>
+    </div>
+
     <div class="col-2">
       <button routerLink="/customer/create" type="button" class="btn btn-success">Thêm mới</button>
     </div>
@@ -80,6 +44,7 @@
       <th scope="col">Email</th>
       <th scope="col">Địa chỉ</th>
       <th scope="col">Sửa</th>
+      <th scope="col">Xóa</th>
     </tr>
     </thead>
     <tbody *ngFor="let customer of customerList">
@@ -99,9 +64,34 @@
       <td>
         <button [routerLink]="['/customer/update',customer.id]" type="button" class="btn btn-warning">Sửa</button>
       </td>
+      <td>
+        <button (click)="customerRemove = customer" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Xóa
+        </button>
+      </td>
     </tr>
     </tbody>
   </table>
+  <app-footer></app-footer>
 </div>
 </body>
 </html>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Xóa</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có muốn xóa khách hàng <span style="color: red">{{customerRemove.name}}</span> không ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+        <button (click)="removeCustomer()"  type="button" data-bs-dismiss="modal" class="btn btn-primary">Xóa</button>
+      </div>
+    </div>
+  </div>
+</div>

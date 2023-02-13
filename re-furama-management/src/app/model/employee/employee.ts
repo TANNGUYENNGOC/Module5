@@ -3,7 +3,7 @@ import {Division} from "./division";
 
 export interface Employee {
   id:number;
-  name:string;
+  name?:string;
   dateOfBirth?:string;
   idCard?:string;
   salary?:number;

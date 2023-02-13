@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Facility} from "../../../model/facility/facility";
+import {FacilityService} from "../../service/facility/facility.service";
 
 
 @Component({
@@ -9,14 +10,25 @@ import {Facility} from "../../../model/facility/facility";
 })
 export class ListFacilityComponent implements OnInit {
   facilityList: Facility[] = [];
-  constructor() {
-    this.getAll();
+  facilityRemove: Facility;
+  constructor(private facilityService:FacilityService) {
+    this.getAllFacility();
   }
 
   ngOnInit(): void {
   }
 
-  getAll(){
+  getAllFacility(){
+    return this.facilityService.getAll().subscribe(next=>{
+      this.facilityList = next
+    })
   }
+
+  removeFacility() {
+    this.facilityService.delete(this.facilityRemove.id).subscribe(next=>{
+      this.getAllFacility();
+    });
+  }
+
 
 }

@@ -7,6 +7,8 @@ import {ListFacilityComponent} from "./component/facility/list-facility/list-fac
 import {ListContractComponent} from "./component/contract/list-contract/list-contract.component";
 import {CreateFacilityComponent} from "./component/facility/create-facility/create-facility.component";
 import {UpdateCustomerComponent} from "./component/customer/update-customer/update-customer.component";
+import {UpdateFacilityComponent} from "./component/facility/update-facility/update-facility.component";
+import {CreateContractComponent} from "./component/contract/create-contract/create-contract.component";
 
 
 const routes: Routes = [
@@ -14,11 +16,14 @@ const routes: Routes = [
 
   {path: "customer/list", component: ListCustomerComponent},
   {path: "customer/create", component: CreateCustomerComponent},
-  {path: "customer/update/:id",component:UpdateCustomerComponent},
+  {path: "customer/update/:id", component: UpdateCustomerComponent},
+
+  {path: "facility/list", component: ListFacilityComponent},
+  {path: "facility/create", component: CreateFacilityComponent},
+  {path: "facility/update/:id", component: UpdateFacilityComponent},
 
   {path: "contract/list", component: ListContractComponent},
-  {path: "facility/list", component:ListFacilityComponent},
-  {path: "facility/create", component: CreateFacilityComponent}
+  {path: "contract/create", component: CreateContractComponent}
 ];
 
 @NgModule({

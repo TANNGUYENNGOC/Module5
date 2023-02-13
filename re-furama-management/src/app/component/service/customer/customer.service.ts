@@ -30,4 +30,13 @@ export class CustomerService {
     return this.httpClient.delete("http://localhost:3000/customer/"+id);
   }
 
+  searchCustomer(name: string, email: string, customerType: string) {
+    if (email === "" && customerType === ""){
+      return this.httpClient.get<Customer[]>("http://localhost:3000/customer?name_like="+name);
+    } else if (name === "" && customerType === ""){
+      return this.httpClient.get<Customer[]>("http://localhost:3000/customer?email_like="+email);
+    } else if (name === "" && email === ""){
+      return this.httpClient.get<Customer[]>("http://localhost:3000/customer?customerType.name="+customerType);
+    }
+  }
 }

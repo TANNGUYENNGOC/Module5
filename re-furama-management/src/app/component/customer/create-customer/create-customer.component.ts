@@ -21,7 +21,7 @@ export class CreateCustomerComponent implements OnInit {
       customerType: new FormControl("", [Validators.required]),
       name: new FormControl("", [Validators.required]),
       dateOfBirth: new FormControl("", [Validators.required]),
-      gender: new FormControl("", [Validators.required]),
+      gender: new FormControl("", ),
       idCard: new FormControl("", [Validators.required]),
       phoneNumber: new FormControl("", [Validators.required]),
       email: new FormControl("", [Validators.required]),
@@ -42,10 +42,15 @@ export class CreateCustomerComponent implements OnInit {
   }
 
   createCustomer() {
-    let customer = this.createFormCustomer.value;
-    this.customerService.save(customer).subscribe(next => {
-    });
-    this.createFormCustomer.reset();
-    this.router.navigateByUrl("/customer/list");
+    if (this.createFormCustomer.valid){
+      let customer = this.createFormCustomer.value;
+      this.customerService.save(customer).subscribe(next => {
+      });
+      this.createFormCustomer.reset();
+      this.router.navigateByUrl("/customer/list");
+    } else {
+      alert("Thêm mới không thành công"),
+      this.router.navigateByUrl("/customer/list");
+    }
   }
 }

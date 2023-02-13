@@ -58,10 +58,15 @@ export class UpdateCustomerComponent implements OnInit {
   }
 
   updateCustomer() {
-    let customer: Customer = this.formUpdateCustomer.value;
-    this.customerService.update(customer.id, customer).subscribe(next => {
-      console.log(next);
-      this.router.navigateByUrl("http://localhost:4200/customer/list");
-    });
+    if (this.formUpdateCustomer.valid) {
+      let customer: Customer = this.formUpdateCustomer.value;
+      this.customerService.update(customer.id, customer).subscribe(next => {
+        console.log(next);
+        this.router.navigateByUrl("customer/list");
+      });
+    } else {
+      alert("Chỉnh sửa không thành công"),
+        this.router.navigateByUrl("/customer/list");
+    }
   }
 }
