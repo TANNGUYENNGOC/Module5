@@ -29,6 +29,8 @@
         <label for="exampleInputEmail5" class="form-label">Tiền đặt cọc</label>
         <input formControlName="deposit" type="text" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp">
         <p style="color: red" *ngIf="formCreateContract.controls.deposit.hasError('required') && formCreateContract.controls.deposit.touched">Tiền đặt cọc</p>
+        <p style="color: red" *ngIf="formCreateContract.controls.deposit.hasError('min') && formCreateContract.controls.deposit.touched">Tiền đặt cọc phải lớn hơn 0</p>
+        <p style="color: red" *ngIf="formCreateContract.controls.deposit.hasError('max') && formCreateContract.controls.deposit.touched">Tiền đặt cọc không quá 100.000.000</p>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail100" class="form-label">Nhân viên làm hợp đồng</label>

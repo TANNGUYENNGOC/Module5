@@ -24,17 +24,17 @@ export class CreateFacilityComponent implements OnInit {
               private facilityService: FacilityService,
               private router: Router) {
     this.formCreateFacilyty = new FormGroup({
-      name: new FormControl("",[Validators.required]),
+      name: new FormControl("",[Validators.required,Validators.minLength(4),Validators.maxLength(50)]),
       img: new FormControl(),
-      area: new FormControl("",[Validators.required]),
-      cost: new FormControl("",[Validators.required]),
-      maxPeople: new FormControl("",[Validators.required]),
+      area: new FormControl("",[Validators.required,Validators.min(3),Validators.max(20)]),
+      cost: new FormControl("",[Validators.required,Validators.min(10000000),Validators.max(100000000)]),
+      maxPeople: new FormControl("",[Validators.required,Validators.min(1),Validators.max(10)]),
       rentType: new FormControl("",[Validators.required]),
       facilityType: new FormControl("",[Validators.required]),
       standardRoom: new FormControl("",[Validators.required]),
       descriptionOtherConvenience: new FormControl("",[Validators.required]),
-      poolArea: new FormControl(""),
-      numberOfFloors: new FormControl(""),
+      poolArea: new FormControl("",[Validators.min(2),Validators.max(15)]),
+      numberOfFloors: new FormControl("",Validators.min(1)),
       facilityFree: new FormControl("")
     })
   }

@@ -28,6 +28,7 @@
         <label for="exampleInputEmail2" class="form-label">Tên khách hàng</label>
         <input formControlName="name" type="text" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
         <p style="color: red" *ngIf="formUpdateCustomer.controls.name.hasError('required') && formUpdateCustomer.controls.name.touched">Tên không được để trống</p>
+        <p style="color: red" *ngIf="formUpdateCustomer.controls.name.hasError('pattern') && formUpdateCustomer.controls.name.touched">Tên phải đúng định dạng</p>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail3" class="form-label">Ngày sinh</label>
@@ -57,6 +58,9 @@
         <p style="color: red"
            *ngIf="formUpdateCustomer.controls.idCard.hasError('required') && formUpdateCustomer.controls.idCard.touched">
           SỐ CMND không được để trống</p>
+        <p style="color: red"
+           *ngIf="formUpdateCustomer.controls.idCard.hasError('pattern') && formUpdateCustomer.controls.idCard.touched">
+          Số CMND có 9 hoặc 12 kí tự là số</p>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail6" class="form-label">Số điện thoại</label>
@@ -64,6 +68,9 @@
         <p style="color: red"
            *ngIf="formUpdateCustomer.controls.phoneNumber.hasError('required') && formUpdateCustomer.controls.phoneNumber.touched">
           SỐ điện thoại không được để trống</p>
+        <p style="color: red"
+           *ngIf="formUpdateCustomer.controls.phoneNumber.hasError('pattern') && formUpdateCustomer.controls.phoneNumber.touched">
+          SỐ điện thoại bắt đầu là 0 và có 10 kí tự là số</p>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail7" class="form-label">Email</label>
@@ -71,6 +78,9 @@
         <p style="color: red"
            *ngIf="formUpdateCustomer.controls.email.hasError('required') && formUpdateCustomer.controls.email.touched">
           Email không được để trống</p>
+        <p style="color: red"
+           *ngIf="formUpdateCustomer.controls.email.hasError('email') && formUpdateCustomer.controls.email.touched">
+          Email chưa đúng định dạng</p>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail8" class="form-label">Địa chỉ</label>
@@ -78,6 +88,12 @@
         <p formControlName="address" style="color: red"
            *ngIf="formUpdateCustomer.controls.address.hasError('required') && formUpdateCustomer.controls.address.touched">
           Địa chỉ không được để trống</p>
+        <p formControlName="address" style="color: red"
+           *ngIf="formUpdateCustomer.controls.address.hasError('minLength') && formUpdateCustomer.controls.address.touched">
+          Địa chỉ ít nhất 5 kí tự</p>
+        <p formControlName="address" style="color: red"
+           *ngIf="formUpdateCustomer.controls.address.hasError('maxLength') && formUpdateCustomer.controls.address.touched">
+          Địa chỉ tối đa 100 kí tự</p>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>

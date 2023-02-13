@@ -19,13 +19,13 @@ export class CreateCustomerComponent implements OnInit {
               private router: Router) {
     this.createFormCustomer = new FormGroup({
       customerType: new FormControl("", [Validators.required]),
-      name: new FormControl("", [Validators.required]),
+      name: new FormControl("", [Validators.required,Validators.pattern("^[A-Za-zvxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ\\\\s\\\\d]{5,50}$")]),
       dateOfBirth: new FormControl("", [Validators.required]),
-      gender: new FormControl("", ),
-      idCard: new FormControl("", [Validators.required]),
-      phoneNumber: new FormControl("", [Validators.required]),
-      email: new FormControl("", [Validators.required]),
-      address: new FormControl("", [Validators.required])
+      gender: new FormControl(""),
+      idCard: new FormControl("", [Validators.required,Validators.pattern("[0-9]{10}")]),
+      phoneNumber: new FormControl("", [Validators.required,Validators.pattern("[0][0-9]{9}")]),
+      email: new FormControl("", [Validators.required,Validators.email]),
+      address: new FormControl("", [Validators.required,Validators.minLength(5), Validators.maxLength(100)])
     })
   }
 

@@ -18,6 +18,8 @@
         <label for="exampleInputEmail2" class="form-label">Tên dịch vụ</label>
         <input formControlName="name" type="text" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp">
         <p style="color: red" *ngIf="formUpdaeFacility.controls.name.hasError('required') && formUpdaeFacility.controls.name.touched">Nhập tên dịch vụ</p>
+        <p style="color: red" *ngIf="formUpdaeFacility.controls.name.hasError('minLength') && formUpdaeFacility.controls.name.touched">Tên dịch vụ tối thiểu 4 kí tự</p>
+        <p style="color: red" *ngIf="formUpdaeFacility.controls.name.hasError('maxLength') && formUpdaeFacility.controls.name.touched">Tên dịch vụ tối đa 50 kí tự</p>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail9" class="form-label">Link ảnh mô tả</label>
@@ -27,18 +29,23 @@
         <label for="exampleInputEmail3" class="form-label">Diện tích sử dụng</label>
         <input formControlName="area" type="text" class="form-control" id="exampleInputEmail3" aria-describedby="emailHelp">
         <p style="color: red" *ngIf="formUpdaeFacility.controls.area.hasError('required') && formUpdaeFacility.controls.area.touched">Nhập DIện tích</p>
-
+        <p style="color: red" *ngIf="formUpdaeFacility.controls.area.hasError('min') && formUpdaeFacility.controls.area.touched">Diện tích sử dụng ít nhất 3 mét vuông</p>
+        <p style="color: red" *ngIf="formUpdaeFacility.controls.area.hasError('max') && formUpdaeFacility.controls.area.touched">Diện tích sử dụng tối đa 20 mét vuông</p>
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail15" class="form-label">Chi phí thuê</label>
         <input formControlName="cost" type="text" class="form-control" id="exampleInputEmail15" aria-describedby="emailHelp">
         <p style="color: red" *ngIf="formUpdaeFacility.controls.cost.hasError('required') && formUpdaeFacility.controls.cost.touched">Nhập chi phí thuê</p>
+        <p style="color: red" *ngIf="formUpdaeFacility.controls.cost.hasError('min') && formUpdaeFacility.controls.cost.touched">Chi phí thuê ít nhất 10.000.000 VND</p>
+        <p style="color: red" *ngIf="formUpdaeFacility.controls.cost.hasError('max') && formUpdaeFacility.controls.cost.touched">Chi phí thuê tối đa 100.000.000 VND</p>
 
       </div>
       <div class="mb-3">
         <label for="exampleInputEmail5" class="form-label">Số người tối đa</label>
         <input formControlName="maxPeople" type="text" class="form-control" id="exampleInputEmail5" aria-describedby="emailHelp">
         <p style="color: red" *ngIf="formUpdaeFacility.controls.maxPeople.hasError('required') && formUpdaeFacility.controls.maxPeople.touched">Nhập số người tối đa</p>
+        <p style="color: red" *ngIf="formUpdaeFacility.controls.maxPeople.hasError('min') && formUpdaeFacility.controls.maxPeople.touched">Số người ít nhất là 1</p>
+        <p style="color: red" *ngIf="formUpdaeFacility.controls.maxPeople.hasError('max') && formUpdaeFacility.controls.maxPeople.touched">Tối đa là 10 người</p>
       </div>
 
       <div class="mb-3">
@@ -77,10 +84,14 @@
       <div id="poolArea" class="mb-3">
         <label  for="poolArea" class="form-label">Diện tích hồ bơi</label>
         <input formControlName="poolArea" type="text" class="form-control"  aria-describedby="emailHelp">
+        <p style="color: red" *ngIf="formUpdaeFacility.controls.poolArea.hasError('min') && formUpdaeFacility.controls.poolArea.touched">Diện tích hồ bơi ít nhất là 2 mét vuông</p>
+        <p style="color: red" *ngIf="formUpdaeFacility.controls.poolArea.hasError('max') && formUpdaeFacility.controls.poolArea.touched">Diện tích hồ bơi tối đa là 15 mét vuông</p>
       </div>
       <div id="numberOfFloors" class="mb-3">
         <label for="numberOfFloors" class="form-label">Số tầng</label>
         <input formControlName="numberOfFloors" type="text" class="form-control"  aria-describedby="emailHelp">
+        <p style="color: red" *ngIf="formUpdaeFacility.controls.numberOfFloors.hasError('min') && formUpdaeFacility.controls.numberOfFloors.touched">Số tầng phải lớn hơn 0</p>
+
       </div>
       <div id="facilityFree" class="mb-3">
         <label for="facilityFree" class="form-label">Dịch vụ miễn phí</label>

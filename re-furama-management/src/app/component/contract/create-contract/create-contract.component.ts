@@ -29,7 +29,7 @@ export class CreateContractComponent implements OnInit {
       id: new FormControl(),
       startDate: new FormControl("",[Validators.required]),
       endDate: new FormControl("",[Validators.required]),
-      deposit: new FormControl("",[Validators.required]),
+      deposit: new FormControl("",[Validators.required,Validators.min(0), Validators.max(100000000)]),
       employee: new FormControl("",[Validators.required]),
       customer: new FormControl("",[Validators.required]),
       facility: new FormControl("",[Validators.required]),
